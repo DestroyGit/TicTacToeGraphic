@@ -37,8 +37,6 @@ public class GameWindow extends JFrame {
         buttonExit.addActionListener(e -> {
             System.exit(0);
         });
-
-
         setVisible(true);
     }
 
