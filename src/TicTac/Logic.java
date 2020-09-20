@@ -11,6 +11,8 @@ public class Logic {
     static final char DOT_O = 'O';
     static final char DOT_EMPTY = '.';
 
+    static String winner;
+
     static char[][] map;
 
     static Random random = new Random();
@@ -21,22 +23,27 @@ public class Logic {
         isFinishedGame = true;
         printMap();
         if (checkWinLines(DOT_X, DOTS_TO_WIN)) {
-            System.out.println("Вы победили! Поздравляем!");
+            winner = "Вы победили! Поздравляем!";
+            System.out.println(winner);
+
             return;
         }
         if (isFull()) {
-            System.out.println("Ничья");
+            winner = "Ничья";
+            System.out.println(winner);
             return;
         }
 
         aiTurn();
         printMap();
         if (checkWinLines(DOT_O, DOTS_TO_WIN)) {
-            System.out.println("Компьютер победил.");
+            winner = "Компьютер победил.";
+            System.out.println(winner);
             return;
         }
         if (isFull()) {
-            System.out.println("Ничья");
+            winner = "Ничья";
+            System.out.println(winner);
             return;
         }
 

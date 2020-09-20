@@ -34,9 +34,9 @@ public class BattleField extends JPanel {
                 if (!Logic.isFinishedGame) {
                     Logic.humanTurn(cellX, cellY);
 
-//                    if(Logic.isFinishedGame){
-//                        //result
-//                    }
+                    if(Logic.isFinishedGame){
+                        new Winning(Logic.winner);
+                    }
                 }
 
 
@@ -91,9 +91,9 @@ public class BattleField extends JPanel {
     }
 
     private void drawO(Graphics g, int cellX, int cellY) {
-//        g.setFont(new Font("Arial", Font.BOLD, 30));
-//        g.drawString("O", cellX * cellWidth + (cellWidth / 2), cellY * cellHeight + (cellHeight / 2));
-
+        ((Graphics2D) g).setStroke(new BasicStroke(5));
+        g.setColor(Color.red);
+        g.drawOval(cellX * cellWidth, cellY * cellHeight, cellWidth, cellHeight);
     }
 
     private void drawX(Graphics g, int cellX, int cellY) {
@@ -101,6 +101,8 @@ public class BattleField extends JPanel {
         g.setColor(Color.BLUE);
         g.drawLine(cellX * cellWidth, cellY * cellHeight,
                 (cellX + 1) * cellWidth, (cellY + 1) * cellHeight);
+        g.drawLine((cellX + 1) * cellWidth, cellY * cellHeight,
+                cellX * cellWidth, (cellY + 1) * cellHeight);
 
     }
 }
